@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* js_task1 */
+.input_block {
+	position: relative;
+	height: 200px;
+	width: 500px;
+	background: #C1C1C1;
+	color: #454545;
+	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto
+}
+.textbox {
+	float: left;
+	margin-left: 100px;
+	margin-right: auto;
+	margin-top: 20px;
+}
+.button {
+	float: left;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+.clearflow {
+	overflow: hidden;
+}
+.float {
+	float: left;
+}
+.float p {
+	float: left;
+	margin-left: 100px;
+}
+.result {
+	float: left;
+	margin-top: 18px;
+	margin-left: 10px;
+}
