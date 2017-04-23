@@ -1,0 +1,34 @@
+@charset "utf-8";
+/* CSS Document */
+/*Table block*/
+.table_style {
+	border-collapse: collapse;
+}
+.table_style th {
+	background: #555555;
+	color: #FFFFFF;
+	border: 1px;
+}
+.tr_style {
+	background: #CCCCCC;
+	font-weight: bold;
+}
+table th, table td {
+	border: 1px solid darkgrey;
+}
+
+.button_style{
+   background-color:#CCC; 
+   border-radius:20px;
+   color:#333;
+   margin-top:10px;
+}
+
+.city_name{
+   margin-left:30px;
+   margin-top:30px;
+}
+
+.button_distance{
+  margin-left:180px;
+}
