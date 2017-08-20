@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>IFE JavaScript Task 04</title>
+<style type="text/css">
+span {
+	background-color: rgba(255,79,39,1.00);
+	color: rgba(255,255,255,1.00);
+	font-size: 40px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+</style>
+</head>
+
+<body>
+<input id="type" type="text">
+<button id="Left_in">左侧入</button>
+<button id="Left_out">左侧出</button>
+<button id="Right_in">右侧入</button>
+<button id="Right_out">右侧出</button>
+<br>
+<br>
+<div id="showDate"> </div>
+<script type="text/javascript">
+	var date;
+	var date_list=[];
+    var type =document.getElementById("type");
+	var Left_in = document.getElementById("Left_in");
+	var Left_out=document.getElementById("Left_out");
+	var Right_in=document.getElementById("Right_in");
+	var Right_out=document.getElementById("Right_out");
+	
+	function check(type){
+		if(isNaN(type.value)){
+			 alert("只能输入正整数");
+		}else if(type.value==null || type.value==""){
+			alert("您没有输入数值");
+		}
+        else if(type.value<0 || type.value>100){
+			alert("请输入100以内的正整数");
+		}else{
+			date=type.value;
+		}
+	}
+		
+	Left_in.onclick = function(){
+		check(type);
+		var span=document.createElement("span");
+		span.innerHTML=date;
+		var showDate=document.getElementById("showDate");
+		showDate.insertBefore(span,showDate.childNodes[0]);
+		alert("已经往左边添加元素" + date);
+	};
+		
+	Left_out.onclick=function(){
+		var showDate=document.getElementById("showDate");
+		showDate.removeChild(showDate.childNodes[0]);
+		alert("已经除去最左边元素" + date);
+	}
+	
+	Right_in.onclick=function(){
+	   check(type);
+       var span=document.createElement("span");
+		span.innerHTML=date;
+		var showDate=document.getElementById("showDate");
+		showDate.appendChild(span);
+		alert("已经添加最右边元素" + date);
+	}
+	
+	Right_out.onclick=function(){
+		check(type);
+		var showDate=document.getElementById("showDate");
+		showDate.removeChild(showDate.lastElementChild);
+		alert("已经除去最右边元素" + date);
+	}
+	 
+	</script>
+</body>
+</html>
