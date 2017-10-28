@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <title>IFE JavaScript Task 04</title>
 <style type="text/css">
-span {
+div {
 	background-color: rgba(255,79,39,1.00);
 	color: rgba(255,255,255,1.00);
-	font-size: 40px;
+	font-size: 14px;
 	margin-left: 5px;
 	margin-right: 5px;
 }
@@ -47,7 +47,7 @@ span {
 		
 	Left_in.onclick = function(){
 		check(type);
-		var span=document.createElement("span");
+		var span=document.createElement("div");
 		span.innerHTML=date;
 		var showDate=document.getElementById("showDate");
 		showDate.insertBefore(span,showDate.childNodes[0]);
@@ -62,7 +62,7 @@ span {
 	
 	Right_in.onclick=function(){
 	   check(type);
-       var span=document.createElement("span");
+       var span=document.createElement("div");
 		span.innerHTML=date;
 		var showDate=document.getElementById("showDate");
 		showDate.appendChild(span);
