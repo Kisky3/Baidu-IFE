@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>IFE JavaScript Task 05</title>
+<style type="text/css">
+.number {
+	display: inline-block;
+	width: 35px;
+	margin: 5px 5px;
+	border: 2px solid #f7dc6f;
+	border-radius: 3px;
+	font-size: 20px;
+	text-align: center;
+	background: #f7dc6f;
+	color: #FFFFFF;
+	transition: color 0.1s linear, background 0.1s linear;
+	-webkit-transition: color 0.1s linear, background 0.1s linear;
+	cursor: pointer;
+}
+.number:hover {
+	background: #FFFFFF;
+	color: #f7dc6f;
+}
+input {
+	border: 1px solid #f7dc6f;
+	color: #ccc;
+	padding: 7px 0px;
+	font-size: 20px;
+	width: 300px;
+	border-radius: 3px;
+	padding-left: 5px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	box-shadow: inset 0 3px 3px rgba(0,0,0,.075);
+	-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+}
+input:focus {
+	border-color: #f7dc6f;
+	color: #f7dc6f;
+	font-size: 20px;
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(252,243,2201,.9);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(252,243,201,.9)
+}
+.button {
+	display: inline-block;
+	width: 100px;
+	margin: 5px 5px;
+	border: 2px solid #f7dc6f;
+	border-radius: 3px;
+	font-size: 20px;
+	text-align: center;
+	background: #f7dc6f;
+	color: #FFFFFF;
+	transition: color 0.1s linear, background 0.1s linear;
+	-webkit-transition: color 0.1s linear, background 0.1s linear;
+	cursor: pointer;
+}
+.button:hover {
+	background: #FFFFFF;
+	color: #f7dc6f;
+}
+</style>
+</head>
+
+<body>
+<input id="type" type="text" class="type_line">
+<button class="button" id="Left_in">左侧入</button>
+<button class="button" id="Left_out">左侧出</button>
+<button class="button" id="Right_in">右侧入</button>
+<button class="button" id="Right_out">右侧出</button>
+<button class="button" id="Rank">排序</button>
+<br>
+<br>
+<div id="showDate" class="show"> </div>
+<script type="text/javascript">
+	var date;
+    var type =document.getElementById("type");
+	var Left_in = document.getElementById("Left_in");
+	var Left_out=document.getElementById("Left_out");
+	var Right_in=document.getElementById("Right_in");
+	var Right_out=document.getElementById("Right_out");
+	var Rank = document.getElementById("Rank");
+	
+		
+	Left_in.onclick = function(){
+		if(isNaN(type.value)){
+			 alert("只能输入正整数");
+		}else if(type.value==null || type.value==""){
+			alert("您没有输入数值");
+		}
+        else if(type.value<=10 || type.value>=100){
+			alert("请输入10-100以内的正整数");
+		}else{
+			date=type.value;	
+			var span=document.createElement("span");
+		    var height =document.getElementById("type").value+"px";
+		    span.className="number";
+		    var showDate=document.getElementById("showDate");
+		    showDate.insertBefore(span,showDate.childNodes[0]);
+		    span.setAttribute("style","height:"+height);
+		    alert("已经往左边添加元素" + date);
+		}
+	};
+		
+	Left_out.onclick=function(){
+		var showDate=document.getElementById("showDate");
+		showDate.removeChild(showDate.childNodes[0]);
+		alert("已经除去最左边元素");
+	}
+	
+	Right_in.onclick=function(){
+	   if(isNaN(type.value)){
+			 alert("只能输入正整数");
+		}else if(type.value==null || type.value==""){
+			alert("您没有输入数值");
+		}
+        else if(type.value<=10 || type.value>=100){
+			alert("请输入10-100以内的正整数");
+		}else{
+			date=type.value;
+			var span=document.createElement("span");
+		    var height=document.getElementById("type").value+"px";
+		    span.className="number";
+		    var showDate=document.getElementById("showDate");
+		    showDate.appendChild(span);
+		    span.setAttribute("style","height:"+height);
+		    alert("已经添加最右边元素" + date)
+		}
+	}
+	
+	Right_out.onclick=function(){
+		var showDate=document.getElementById("showDate");
+		showDate.removeChild(showDate.lastElementChild);
+		alert("已经除去最右边元素");
+	}
+   
+	var spa = showDate.getElementsByTagName("span");
+	showDate.onmouseover = function() {	
+	for (var i in spa) {
+		spa[i].index = i;
+		spa[i].onmouseover = function() {
+			text = parseInt(showDate.children[this.index].style.height);
+			showDate.setAttribute("title",text);
+		}
+	}
+}
+   Rank.onclick=function(){
+	
+		var dvnumbersp = document.getElementById("showDate").getElementsByTagName("span");
+		var i = dvnumbersp.length;
+		var exchangorder;
+		while(i>0){
+			for (var j = 0; j < i-1; j++) {
+				if (dvnumbersp[j].style.height > dvnumbersp[j+1].style.height) {
+					exchangorder = dvnumbersp[j].style.height;
+					dvnumbersp[j].style.height = dvnumbersp[j+1].style.height;
+					dvnumbersp[j+1].style.height = exchangorder;
+				}
+			}
+			i--;
+    }
+ }
+</script>
+</body>
+</html>
