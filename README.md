@@ -42,6 +42,9 @@ Baidu Task
 ◆JS task1_1_4_1 :
   http://htmlpreview.github.io/?https://github.com/Kisky3/Baidu-IFE/blob/master/JS/JS_Task1_1_4_1/JS_Task1_1_4_1.html
   
+◆JS task1_1_5 :
+   http://htmlpreview.github.io/?
+  
 
  
  
